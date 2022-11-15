@@ -1,7 +1,7 @@
 # URSip_Liquid_and_Oil
 
 
-![Screen Shot](Demo.gif)
+![Screen Shot](Screenshot.jpg)
 
 ## Описание проекта
 
