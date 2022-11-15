@@ -80,11 +80,11 @@ class ExcelToSqlite(object):
         print(mytable)
 
 
-sqlite3.connect("dbName.db")  # Создайте базу данных самостоятельно с помощью sqlit3
-dbName = "dbName"  # Назначьте имя базы данных переменной функции
-tableName = "testName"  # Имя таблицы базы данных.
-excelName = "Задание бек.xlsx"  # Имя excel файла.
+sqlite3.connect("dbName.db")    # Создайте базу данных самостоятельно с помощью sqlite3.
+dbName = "dbName"               # Установите имя базы данных в качестве переменной функции.
+tableName = "testName"          # Установите имя таблицы базы данных.
+excelName = "Задание бек.xlsx"  # Установите имя excel файла.
 
-es = ExcelToSqlite(dbName)
-es.ExcelToDb(tableName, excelName)
-es.Query(tableName)
+test = ExcelToSqlite(dbName)
+test.ExcelToDb(tableName, excelName)
+test.Query(tableName)
