@@ -40,24 +40,6 @@ class ExcelToSqlite(object):
                 data.append(value)
             self.__Insert(data)
         print("     3)База данных наполнена")
-        # excel = xlrd.open_workbook(excelName)
-        # sheet = excel.sheets()[sheetIndex]
-        # #Индекс  # листов
-        # self.sheetRows = sheet.nrows  # строки в Excel
-        # self.sheetCols = sheet.ncols  # excle Количество столбцов
-        # fieldNames = sheet.row_values(0)  # Получить имя поля заголовка
-        # # Создать таблицу
-        # fieldTypes = ""
-        # for index in range(fieldNames.__len__()):
-        #     if (index != fieldNames.__len__() - 1):
-        #         fieldTypes += fieldNames[index] + " text,"
-        #     else:
-        #         fieldTypes += fieldNames[index] + " text"
-
-        # Вставить данные
-        # for rowId in range(self.sheetDataStartIndex, self.sheetRows):
-        #     fieldValues = sheet.row_values(rowId)
-        #     self.__Insert(fieldNames, fieldValues)
 
     def __CreateTable(self, tableName):
         """
@@ -67,8 +49,7 @@ class ExcelToSqlite(object):
         """
         print("     1)Создание таблицы " + tableName)
 
-        sql = 'CREATE TABLE IF NOT EXISTS %s (date_id int, company str, TotalfactQLiq int, TotalfactQOil int, TotalfactQLiqQOil int, TotalforecastQLiq int, TotalforecastQOil int, TotalforecastQLiqQOil int)' % (self.tableName)  # Обратите внимание на нарезку здесь, формат вставленного заголовка имеет лишние запятые
-        #print(self.exe + sql)
+        sql = 'CREATE TABLE IF NOT EXISTS %s (date_id int, company str, TotalfactQLiq int, TotalfactQOil int, TotalfactQLiqQOil int, TotalforecastQLiq int, TotalforecastQOil int, TotalforecastQLiqQOil int)' % (self.tableName)
         self.cursor.execute(sql)
         self.conn.commit()
 
@@ -82,8 +63,8 @@ class ExcelToSqlite(object):
 
     def Query(self, tableName):
         """
-                 Данные запроса в таблицах базы данных
-                 :param tableName: имя таблицы
+        Данные запроса в таблицах базы данных
+        :param tableName: имя таблицы
         """
         self.cursor.execute('select * from %s' % (tableName))
         mytable = from_db_cursor(self.cursor)
